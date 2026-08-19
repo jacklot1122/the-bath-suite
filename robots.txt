@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# The landing page template is scaffolding, not a real page.
+Disallow: /landing-template.html
+
+Sitemap: https://www.thebathsuite.com.au/sitemap.xml

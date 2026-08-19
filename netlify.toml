@@ -1,0 +1,59 @@
+# Netlify — static site, no build step.
+[build]
+  publish = "."
+  command = ""
+
+# Fonts, images, CSS and JS are versioned by filename, so cache them hard.
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/assets/js/site.js"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# config.js holds the phone number, email, hours and service areas. It gets
+# edited whenever those change, so it must revalidate on every load rather
+# than sitting in someone's browser cache for a week.
+[[headers]]
+  for = "/assets/js/config.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# HTML should always be revalidated so edits go live immediately.
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# Send www to the bare domain (or reverse this if the client prefers www —
+# just make sure the canonical tags in each page's <head> match whichever wins).
+[[redirects]]
+  from = "/index"
+  to = "/index.html"
+  status = 301
+
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404

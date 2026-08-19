@@ -1,0 +1,9 @@
+# Internal working documents — not for the public preview repo.
+# Both live on locally; they are just not published.
+README.md
+CLIENT-CHECKLIST.md
+
+# OS noise
+Thumbs.db
+.DS_Store
+desktop.ini

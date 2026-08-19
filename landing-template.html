@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<!--
+================================================================================
+  LANDING PAGE TEMPLATE — The Bath Suite
+================================================================================
+
+  WHAT THIS IS
+  A single-purpose page for one campaign, suburb, service or offer. Every piece
+  of copy is a numbered slot, so a new landing page never inherits another
+  page's text.
+
+  HOW TO MAKE A NEW LANDING PAGE
+  1. Copy this file and rename it for the focus, using words people search:
+       landing-template.html  ->  bathroom-renovation-eastern-suburbs.html
+                              ->  ensuite-renovation-quote.html
+  2. Work down the slot list below. Search the file for each slot name
+     (e.g. LP_H1) — every one appears as data-slot="LP_H1" on the element that
+     holds it, and as an HTML comment directly above it.
+  3. Replace every [SLOT: ...] placeholder. Anything still in square brackets
+     is unfinished — search the finished file for "[SLOT" to check.
+  4. Set LP_FORM_TAG (below, in the form) to the page name. It travels with the
+     enquiry email so you know which page produced the lead.
+  5. Add the page to sitemap.xml.
+  6. Delete any section you do not want — each is marked OPTIONAL SECTION.
+
+  THE SLOTS
+    LP_TITLE .......... browser tab + Google result title (~60 chars)
+    LP_META ........... Google result description (~155 chars)
+    LP_CANONICAL ...... this page's own full URL
+    LP_OG_IMAGE ....... full URL of the sharing image
+    LP_EYEBROW ........ small caps line above the headline
+    LP_H1 ............. the one promise this page makes
+    LP_SUB ............ 1–2 sentences supporting the headline
+    LP_CTA_PRIMARY .... main button text
+    LP_CTA_SECONDARY .. second button text
+    LP_HERO_IMG ....... hero photograph + its alt text
+    LP_PROOF_1..3 ..... three short credibility lines under the hero
+    LP_PITCH_EYEBROW    section label for the pitch
+    LP_PITCH_H2 ....... the pitch heading
+    LP_PITCH_BODY ..... two or three paragraphs
+    LP_PITCH_IMG ...... supporting photograph + alt text
+    LP_BENEFIT_1..3 ... three benefits, each a heading + a sentence
+    LP_GALLERY ........ four photographs (swap the file names)
+    LP_FAQ_1..3 ....... three questions this audience actually asks
+    LP_FORM_H2 ........ heading above the form
+    LP_FORM_BODY ...... one line of reassurance above the form
+    LP_FORM_TAG ....... campaign name sent with the enquiry
+    LP_CLOSE_H2 ....... final call to action heading
+
+  DO NOT EDIT the header, footer or licence strip — they are shared with the
+  rest of the site and should stay identical everywhere.
+================================================================================
+-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- LP_TITLE -->
+<title>[SLOT: LP_TITLE — e.g. Bathroom Renovations in the Eastern Suburbs | The Bath Suite]</title>
+<!-- LP_META -->
+<meta name="description" content="[SLOT: LP_META — one sentence, around 155 characters, saying what is offered and where.]">
+<!-- LP_CANONICAL -->
+<link rel="canonical" href="https://www.thebathsuite.com.au/[SLOT: LP_CANONICAL — this file name].html">
+<meta name="theme-color" content="#15130f">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Bath Suite">
+<meta property="og:locale" content="en_AU">
+<meta property="og:title" content="[SLOT: LP_TITLE]">
+<meta property="og:description" content="[SLOT: LP_META]">
+<meta property="og:url" content="https://www.thebathsuite.com.au/[SLOT: LP_CANONICAL].html">
+<!-- LP_OG_IMAGE -->
+<meta property="og:image" content="https://www.thebathsuite.com.au/assets/img/gallery/calacatta-marble-arched-mirrors-brass-tapware.webp">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<link rel="preload" href="assets/fonts/bodoni-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/jost-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css">
+<script src="assets/js/config.js"></script>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- SHARED HEADER — do not edit.
+     For a paid-traffic page you may delete the <ul class="nav__list"> and the
+     nav panel links, leaving only the brand and the quote button, so there is
+     nowhere to click away to. -->
+<header class="site-head">
+  <div class="shell head-inner">
+    <a class="brand" href="index.html" aria-label="The Bath Suite — home">
+      <img class="brand__mark" src="assets/img/logo-mark.webp" alt="" width="240" height="141" fetchpriority="high">
+      <span class="brand__type">The Bath&nbsp;Suite</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <ul class="nav__list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a class="btn btn--brass btn--sm" href="#enquire">Request a quote</a>
+    </nav>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="navPanel">
+      <span></span><span></span><span></span>
+      <span class="visually-hidden">Menu</span>
+    </button>
+  </div>
+</header>
+
+<div class="nav-panel" id="navPanel">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contact.html">Contact</a>
+  <a class="btn btn--brass" href="#enquire">Request a quote</a>
+  <p class="nav-panel__meta">Sydney, NSW<br>NSW Licence 697736</p>
+</div>
+
+<main id="main">
+
+  <!-- ============================================================ HERO -->
+  <section class="hero">
+    <!-- LP_HERO_IMG — swap the file name and the alt text -->
+    <img class="hero__img" data-slot="LP_HERO_IMG"
+         src="assets/img/gallery/calacatta-marble-arched-mirrors-brass-tapware.webp"
+         alt="[SLOT: LP_HERO_IMG alt — describe the room plainly, for screen readers and image search]"
+         width="1206" height="770" fetchpriority="high" decoding="async">
+    <div class="shell hero__inner">
+      <!-- LP_EYEBROW -->
+      <p class="eyebrow" data-slot="LP_EYEBROW">[SLOT: LP_EYEBROW — e.g. Eastern Suburbs &middot; Bathroom renovation]</p>
+      <!-- LP_H1 -->
+      <h1 class="hero__title" data-slot="LP_H1">[SLOT: LP_H1 — the single promise of this page]</h1>
+      <!-- LP_SUB -->
+      <p class="lead" data-slot="LP_SUB">[SLOT: LP_SUB — one or two sentences. What you do, where, and who for.]</p>
+      <div class="btn-row">
+        <!-- LP_CTA_PRIMARY / LP_CTA_SECONDARY -->
+        <a class="btn btn--brass" href="#enquire" data-slot="LP_CTA_PRIMARY">[SLOT: Request a quote]</a>
+        <a class="btn btn--ghost" href="gallery.html" data-slot="LP_CTA_SECONDARY">[SLOT: View our work]</a>
+      </div>
+    </div>
+    <span class="hero__seam" aria-hidden="true"></span>
+  </section>
+
+  <!-- ====================================================== PROOF ROW -->
+  <section class="section section--tight">
+    <div class="shell">
+      <div class="pillars">
+        <!-- LP_PROOF_1..3 — keep these short. Facts, not adjectives. -->
+        <div class="pillar reveal">
+          <h3 class="h3" data-slot="LP_PROOF_1_TITLE">[SLOT: Licensed NSW renovator]</h3>
+          <p data-slot="LP_PROOF_1_BODY">[SLOT: LP_PROOF_1_BODY — one sentence of evidence.]</p>
+        </div>
+        <div class="pillar reveal">
+          <h3 class="h3" data-slot="LP_PROOF_2_TITLE">[SLOT: Design and build in one]</h3>
+          <p data-slot="LP_PROOF_2_BODY">[SLOT: LP_PROOF_2_BODY — one sentence of evidence.]</p>
+        </div>
+        <div class="pillar reveal">
+          <h3 class="h3" data-slot="LP_PROOF_3_TITLE">[SLOT: Fixed scope, itemised quote]</h3>
+          <p data-slot="LP_PROOF_3_BODY">[SLOT: LP_PROOF_3_BODY — one sentence of evidence.]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================== PITCH -->
+  <section class="section on-paper">
+    <div class="shell">
+      <div class="split split--wide-left split--top">
+        <div class="reveal">
+          <!-- LP_PITCH_EYEBROW / LP_PITCH_H2 / LP_PITCH_BODY -->
+          <p class="eyebrow" data-slot="LP_PITCH_EYEBROW">[SLOT: The offer]</p>
+          <h2 data-slot="LP_PITCH_H2">[SLOT: LP_PITCH_H2 — the heading that earns the next scroll]</h2>
+          <div class="prose" data-slot="LP_PITCH_BODY" style="margin-top: 1.5rem">
+            <p>[SLOT: LP_PITCH_BODY paragraph 1 — the problem this audience has, in their words.]</p>
+            <p>[SLOT: LP_PITCH_BODY paragraph 2 — how the studio solves it, specifically.]</p>
+            <p>[SLOT: LP_PITCH_BODY paragraph 3 — optional. Delete this line if not needed.]</p>
+          </div>
+        </div>
+        <div class="reveal">
+          <!-- LP_PITCH_IMG -->
+          <figure class="figure zoom arch">
+            <img class="media-tall" data-slot="LP_PITCH_IMG"
+                 src="assets/img/gallery/warm-neutral-ensuite-fluted-tile-arch-mirror-760.webp"
+                 srcset="assets/img/gallery/warm-neutral-ensuite-fluted-tile-arch-mirror-760.webp 760w,
+                         assets/img/gallery/warm-neutral-ensuite-fluted-tile-arch-mirror.webp 1206w"
+                 sizes="(min-width: 900px) 40vw, 92vw"
+                 width="1206" height="792" loading="lazy" decoding="async"
+                 alt="[SLOT: LP_PITCH_IMG alt — describe the room plainly]">
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================= BENEFITS -->
+  <section class="section on-dark">
+    <div class="shell">
+      <div class="reveal" style="margin-bottom: clamp(2rem, 1rem + 3vw, 3rem)">
+        <p class="eyebrow" data-slot="LP_BENEFIT_EYEBROW">[SLOT: Why us]</p>
+        <h2 data-slot="LP_BENEFIT_H2">[SLOT: LP_BENEFIT_H2 — heading for the three benefits]</h2>
+      </div>
+      <div class="steps">
+        <!-- LP_BENEFIT_1..3 -->
+        <div class="step reveal">
+          <span class="step__num">01</span>
+          <h3 class="h3" data-slot="LP_BENEFIT_1_TITLE">[SLOT: Benefit one]</h3>
+          <p data-slot="LP_BENEFIT_1_BODY">[SLOT: LP_BENEFIT_1_BODY — one or two sentences.]</p>
+        </div>
+        <div class="step reveal">
+          <span class="step__num">02</span>
+          <h3 class="h3" data-slot="LP_BENEFIT_2_TITLE">[SLOT: Benefit two]</h3>
+          <p data-slot="LP_BENEFIT_2_BODY">[SLOT: LP_BENEFIT_2_BODY — one or two sentences.]</p>
+        </div>
+        <div class="step reveal">
+          <span class="step__num">03</span>
+          <h3 class="h3" data-slot="LP_BENEFIT_3_TITLE">[SLOT: Benefit three]</h3>
+          <p data-slot="LP_BENEFIT_3_BODY">[SLOT: LP_BENEFIT_3_BODY — one or two sentences.]</p>
+        </div>
+        <div class="step reveal">
+          <span class="step__num">04</span>
+          <h3 class="h3" data-slot="LP_BENEFIT_4_TITLE">[SLOT: Benefit four — or delete this block]</h3>
+          <p data-slot="LP_BENEFIT_4_BODY">[SLOT: LP_BENEFIT_4_BODY]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== OPTIONAL SECTION — GALLERY STRIP -->
+  <!-- LP_GALLERY — four photographs. Swap the file names for whichever rooms
+       suit this page's audience. Keep the -760 and full-size pair in sync. -->
+  <section class="section">
+    <div class="shell">
+      <div class="split split--wide-left" style="align-items: end; margin-bottom: clamp(1.75rem, 1rem + 2.5vw, 2.75rem)">
+        <div class="reveal">
+          <p class="eyebrow" data-slot="LP_GALLERY_EYEBROW">[SLOT: Recent work]</p>
+          <h2 data-slot="LP_GALLERY_H2">[SLOT: LP_GALLERY_H2 — heading for the photographs]</h2>
+        </div>
+        <div class="reveal" style="justify-self: start">
+          <a class="ulink" href="gallery.html">View the full gallery <span class="arw" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+
+      <div class="rail bleed reveal" data-slot="LP_GALLERY">
+        <a class="shot zoom" href="gallery.html">
+          <img src="assets/img/gallery/green-mosaic-freestanding-tub-brushed-brass-760.webp"
+               srcset="assets/img/gallery/green-mosaic-freestanding-tub-brushed-brass-760.webp 760w,
+                       assets/img/gallery/green-mosaic-freestanding-tub-brushed-brass.webp 1206w"
+               sizes="(min-width: 900px) 62vw, 76vw" width="1206" height="815"
+               loading="lazy" decoding="async"
+               alt="Freestanding bath against a green mosaic feature wall with brushed brass tapware.">
+        </a>
+        <a class="shot zoom" href="gallery.html">
+          <img src="assets/img/gallery/cream-kitkat-shower-stone-shelving-brass-760.webp"
+               srcset="assets/img/gallery/cream-kitkat-shower-stone-shelving-brass-760.webp 760w,
+                       assets/img/gallery/cream-kitkat-shower-stone-shelving-brass.webp 1186w"
+               sizes="(min-width: 900px) 31vw, 76vw" width="1186" height="1400"
+               loading="lazy" decoding="async"
+               alt="Walk-in shower lined in cream kit-kat tile with stone shelving and brass tapware.">
+        </a>
+        <a class="shot zoom" href="gallery.html">
+          <img src="assets/img/gallery/stone-ensuite-fluted-basin-arch-mirror-760.webp"
+               srcset="assets/img/gallery/stone-ensuite-fluted-basin-arch-mirror-760.webp 760w,
+                       assets/img/gallery/stone-ensuite-fluted-basin-arch-mirror.webp 1206w"
+               sizes="(min-width: 900px) 31vw, 76vw" width="1206" height="804"
+               loading="lazy" decoding="async"
+               alt="Compact ensuite with a fluted basin, arched backlit mirror and freestanding bath.">
+        </a>
+        <a class="shot zoom" href="gallery.html">
+          <img src="assets/img/gallery/travertine-ensuite-checkerboard-shower-stone-vanity-760.webp"
+               srcset="assets/img/gallery/travertine-ensuite-checkerboard-shower-stone-vanity-760.webp 760w,
+                       assets/img/gallery/travertine-ensuite-checkerboard-shower-stone-vanity.webp 1196w"
+               sizes="(min-width: 900px) 31vw, 76vw" width="1196" height="1400"
+               loading="lazy" decoding="async"
+               alt="Travertine ensuite with a checkerboard tiled shower and floating stone vanity.">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================= OPTIONAL SECTION — FAQ -->
+  <section class="section on-paper">
+    <div class="shell shell--narrow">
+      <div class="reveal" style="margin-bottom: clamp(1.5rem, 1rem + 2vw, 2.5rem)">
+        <p class="eyebrow" data-slot="LP_FAQ_EYEBROW">[SLOT: Questions]</p>
+        <h2 data-slot="LP_FAQ_H2">[SLOT: LP_FAQ_H2 — heading above the questions]</h2>
+      </div>
+      <div class="reveal">
+        <!-- LP_FAQ_1..3 — use the questions this audience actually asks. -->
+        <div class="entry" style="padding-block: 1.75rem">
+          <h3 class="h3" data-slot="LP_FAQ_1_Q">[SLOT: LP_FAQ_1_Q — question one?]</h3>
+          <p data-slot="LP_FAQ_1_A" style="margin-top: .6rem; color: var(--text-soft)">[SLOT: LP_FAQ_1_A — a straight answer.]</p>
+        </div>
+        <div class="entry" style="padding-block: 1.75rem">
+          <h3 class="h3" data-slot="LP_FAQ_2_Q">[SLOT: LP_FAQ_2_Q — question two?]</h3>
+          <p data-slot="LP_FAQ_2_A" style="margin-top: .6rem; color: var(--text-soft)">[SLOT: LP_FAQ_2_A — a straight answer.]</p>
+        </div>
+        <div class="entry" style="padding-block: 1.75rem">
+          <h3 class="h3" data-slot="LP_FAQ_3_Q">[SLOT: LP_FAQ_3_Q — question three?]</h3>
+          <p data-slot="LP_FAQ_3_A" style="margin-top: .6rem; color: var(--text-soft)">[SLOT: LP_FAQ_3_A — a straight answer.]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= ENQUIRY -->
+  <section class="section" id="enquire">
+    <div class="shell">
+      <div class="split split--top">
+        <div class="reveal">
+          <!-- LP_FORM_H2 / LP_FORM_BODY -->
+          <p class="eyebrow" data-slot="LP_FORM_EYEBROW">[SLOT: Enquire]</p>
+          <h2 data-slot="LP_FORM_H2">[SLOT: LP_FORM_H2 — heading above the form]</h2>
+          <p class="lead" data-slot="LP_FORM_BODY" style="margin-top: 1.25rem">[SLOT: LP_FORM_BODY — one line of reassurance. What happens after they send it.]</p>
+
+          <div class="rule" aria-hidden="true"><span></span></div>
+
+          <dl class="creds" style="padding: 0; background: none; border: 0">
+            <div class="creds__row" data-optional>
+              <dt>Phone</dt>
+              <dd data-contact="phone"><a class="inline-link" href="tel:0403845057">0403 845 057</a></dd>
+            </div>
+            <div class="creds__row" data-optional>
+              <dt>Email</dt>
+              <dd data-contact="email"><a class="inline-link" href="mailto:Winspear.ma@gmail.com">Winspear.ma@gmail.com</a></dd>
+            </div>
+            <div class="creds__row">
+              <dt>Licence</dt>
+              <dd>NSW Contractor Licence 697736<small>Winspear Developments Pty Ltd — Carpenter, Kitchen, Bathroom, Laundry Renovator</small></dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="reveal">
+          <div class="form-card">
+            <form data-enquiry action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+              <input type="hidden" name="_subject" value="New enquiry — The Bath Suite landing page">
+              <!-- LP_FORM_TAG — set this to the page name so you can tell which
+                   landing page the enquiry came from. -->
+              <input type="hidden" name="_page" value="[SLOT: LP_FORM_TAG — e.g. Eastern Suburbs landing page]">
+              <div class="hp" aria-hidden="true">
+                <label for="hp-lp">Leave this field empty</label>
+                <input id="hp-lp" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+              </div>
+
+              <div class="field-grid field-grid--2">
+                <div class="field">
+                  <label for="l-name">Name <span class="req">*</span></label>
+                  <input id="l-name" name="name" type="text" autocomplete="name" required>
+                </div>
+                <div class="field">
+                  <label for="l-phone">Phone <span class="req">*</span></label>
+                  <input id="l-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+                </div>
+                <div class="field field-full">
+                  <label for="l-email">Email <span class="req">*</span></label>
+                  <input id="l-email" name="email" type="email" autocomplete="email" required>
+                </div>
+                <div class="field">
+                  <label for="l-suburb">Suburb</label>
+                  <input id="l-suburb" name="suburb" type="text" autocomplete="address-level2">
+                </div>
+                <div class="field">
+                  <label for="l-scope">What you need</label>
+                  <select id="l-scope" name="scope">
+                    <option value="">Please choose…</option>
+                    <option>Full bathroom renovation</option>
+                    <option>Ensuite renovation</option>
+                    <option>Design and 3D renders only</option>
+                    <option>Joinery or vanity</option>
+                    <option>Tiling or stone work</option>
+                    <option>Shower or bath installation</option>
+                    <option>Something else</option>
+                  </select>
+                </div>
+                <div class="field field-full">
+                  <label for="l-msg">About the project</label>
+                  <textarea id="l-msg" name="message" rows="5" placeholder="The room, what you would like to change, and any timing you are working to."></textarea>
+                </div>
+              </div>
+
+              <div class="form-foot">
+                <p class="form-note">We reply to every enquiry. Your details are used only to
+                  answer it.</p>
+                <button class="btn btn--brass" type="submit">Send enquiry</button>
+              </div>
+              <p class="form-msg" data-form-msg role="status" aria-live="polite"></p>
+            </form>
+
+            <div class="form-sent center" data-form-sent>
+              <h3 class="h3">Thank you — that has been sent.</h3>
+              <p class="lead" style="margin-top:.6rem">We have your enquiry and will be in touch
+                shortly.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================== CLOSE -->
+  <section class="section on-dark on-dark--deep section--tight">
+    <div class="shell center">
+      <div class="reveal measure-center" style="max-width: 42rem">
+        <!-- LP_CLOSE_H2 -->
+        <h2 data-slot="LP_CLOSE_H2">[SLOT: LP_CLOSE_H2 — final call to action]</h2>
+        <div class="btn-row">
+          <a class="btn btn--brass" href="#enquire">Request a quote</a>
+          <a class="btn btn--ghost" href="gallery.html">See finished rooms</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <aside class="licence-strip">
+    <div class="shell">
+      <p><strong>The Bath Suite</strong> — a trading name of Winspear Developments Pty&nbsp;Ltd
+        &middot; <span class="mono">NSW Licence 697736</span></p>
+      <p>Carpenter &middot; Kitchen, Bathroom &amp; Laundry Renovator &middot; ABN
+        <span class="mono">37 690 516 486</span></p>
+    </div>
+  </aside>
+</main>
+
+<!-- SHARED FOOTER — do not edit -->
+<footer class="site-foot">
+  <div class="shell foot-main">
+    <div>
+      <img class="foot-lockup" src="assets/img/logo-lockup.webp"
+           alt="The Bath Suite" width="620" height="322" loading="lazy" decoding="async">
+      <p class="entity-line">Bespoke bathroom renovation, design and construction across Sydney,
+        New South Wales.</p>
+      <div class="socials">
+        <a href="https://www.facebook.com/profile.php?id=61593189610822" target="_blank" rel="noopener noreferrer" aria-label="The Bath Suite on Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H17V3.6c-.3-.04-1.3-.13-2.46-.13-2.43 0-4.1 1.48-4.1 4.21V9.9H7.7V13h2.74v8z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/the.bathsuite" target="_blank" rel="noopener noreferrer" aria-label="The Bath Suite on Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.23 1 .5 1.4.94.44.44.71.84.94 1.4.17.44.37 1.05.42 2.2.06 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.05 1.2-.25 1.8-.42 2.2a3.9 3.9 0 0 1-.94 1.4c-.44.44-.84.71-1.4.94-.44.17-1.05.37-2.2.42-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.05-1.8-.25-2.2-.42a3.9 3.9 0 0 1-1.4-.94 3.9 3.9 0 0 1-.94-1.4c-.17-.44-.37-1.05-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.05-1.2.25-1.8.42-2.2.23-.6.5-1 .94-1.4.44-.44.84-.71 1.4-.94.44-.17 1.05-.37 2.2-.42C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.8.07-1 .05-1.5.2-1.9.35-.4.15-.7.34-1 .64-.3.3-.5.6-.64 1-.15.4-.3.9-.35 1.9C3.24 9.1 3.2 9.5 3.2 12s.04 2.9.11 4.2c.05 1 .2 1.5.35 1.9.15.4.34.7.64 1 .3.3.6.5 1 .64.4.15.9.3 1.9.35 1.3.07 1.7.07 4.8.07s3.5 0 4.8-.07c1-.05 1.5-.2 1.9-.35.4-.15.7-.34 1-.64.3-.3.5-.6.64-1 .15-.4.3-.9.35-1.9.07-1.3.07-1.7.07-4.2s0-2.9-.07-4.2c-.05-1-.2-1.5-.35-1.9a2.7 2.7 0 0 0-.64-1c-.3-.3-.6-.5-1-.64-.4-.15-.9-.3-1.9-.35C15.5 4 15.1 4 12 4z"/><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4z"/><circle cx="17.3" cy="6.7" r="1.15"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <nav class="foot-col" aria-label="Pages">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <nav class="foot-col" aria-label="Services">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html#renovations">Full renovations</a></li>
+        <li><a href="services.html#design">Interior &amp; 3D design</a></li>
+        <li><a href="services.html#joinery">Joinery &amp; vanities</a></li>
+        <li><a href="services.html#fixtures">Fixtures &amp; hardware</a></li>
+        <li><a href="services.html#tiling">Tiling &amp; stone</a></li>
+        <li><a href="services.html#showers">Showers &amp; baths</a></li>
+      </ul>
+    </nav>
+
+    <div class="foot-col">
+      <h4>Contact</h4>
+      <dl class="foot-contact">
+        <div data-optional>
+          <dt>Phone</dt>
+          <dd data-contact="phone"><a class="inline-link" href="tel:0403845057">0403 845 057</a></dd>
+        </div>
+        <div data-optional>
+          <dt>Email</dt>
+          <dd data-contact="email"><a class="inline-link" href="mailto:Winspear.ma@gmail.com">Winspear.ma@gmail.com</a></dd>
+        </div>
+        <div data-optional>
+          <dt>Service areas</dt>
+          <dd data-contact="areas"><span class="fill">[Service areas not supplied]</span></dd>
+        </div>
+        <div data-optional>
+          <dt>Hours</dt>
+          <dd data-contact="hours">Monday – Friday: 7am – 5pm<br>Saturday: By appointment<br>Sunday: Closed</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+
+  <div class="shell foot-legal">
+    <div>
+      <p class="entity-line"><strong>The Bath Suite</strong> — a trading name of Winspear
+        Developments Pty&nbsp;Ltd &middot; <span class="mono">NSW Licence 697736</span></p>
+      <p class="entity-line">Licence classes: Carpenter; Kitchen, Bathroom and Laundry Renovator
+        &middot; Expires 12/06/2029 &middot; ABN <span class="mono">37 690 516 486</span></p>
+    </div>
+    <div class="foot-legal__end">
+      <p>&copy; <span data-year>2026</span> Winspear Developments Pty Ltd</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky action bar, phones only. The Call button appears by itself once a
+     phone number is set in config.js, and takes over as the primary action. -->
+<div class="action-bar" id="actionBar">
+  <a data-action="call" href="#" hidden>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3h3l1.5 4-2 1.5a12 12 0 0 0 5.5 5.5L16 12l4 1.5v3a2 2 0 0 1-2 2A15 15 0 0 1 4.5 5a2 2 0 0 1 2-2z"/></svg>
+    Call
+  </a>
+  <a class="is-primary" data-action="quote" href="#enquire">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4zM4 7l8 6 8-6"/></svg>
+    Request a quote
+  </a>
+  <a data-action="alt" href="gallery.html">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3zM3 15l5-5 4 4 3-3 6 6"/></svg>
+    Gallery
+  </a>
+</div>
+
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>
