@@ -420,19 +420,16 @@ h2 + .ticks, h3 + .ticks { margin-top: clamp(1.05rem, 0.85rem + 0.6vw, 1.5rem); 
 }
 
 /* ------------------------------------------------------------ 08 hero */
-/* On a phone a full-height hero with bottom-aligned text leaves a dead band of
-   image above the headline, so the box is kept just tall enough to read as a
-   photograph. Desktop keeps the full-bleed treatment. */
 .hero {
   position: relative;
   display: grid; align-items: end;
-  min-height: min(68svh, 560px);
+  min-height: min(80svh, 720px);
   padding-block: clamp(2rem, 1rem + 5vw, 7rem) clamp(1.75rem, 1rem + 4vw, 4.5rem);
   background: var(--ink); color: var(--on-dark);
   isolation: isolate; overflow: hidden;
 }
-@media (min-width: 620px) { .hero { min-height: min(80svh, 720px); } }
 @media (min-width: 900px) { .hero { min-height: min(92svh, 860px); } }
+
 
 .hero__img {
   position: absolute; inset: 0; z-index: -2;
@@ -468,6 +465,44 @@ h2 + .ticks, h3 + .ticks { margin-top: clamp(1.05rem, 0.85rem + 0.6vw, 1.5rem); 
   position: absolute; left: var(--gutter); bottom: 0; z-index: 2;
   width: 1px; height: clamp(2rem, 5vw, 4rem);
   background: linear-gradient(to bottom, var(--brass), transparent);
+}
+
+/* Phones: stop overlaying text on a tall photograph. Laying the image and the
+   text out as two stacked bands fills the screen exactly, with no dead space
+   at either end, and the text gets a solid ground instead of a scrim.
+   NOTE: this block must stay below the base .hero__img rule — it overrides
+   the absolute positioning, and both selectors have equal specificity. */
+/* Applies to the full-screen home and landing hero only. Interior pages use
+   .hero--page, which stays a compact content-sized band on a phone rather
+   than eating a whole screen just to announce the page title. */
+@media (max-width: 619px) {
+  .hero:not(.hero--page) {
+    min-height: calc(100svh - var(--head-h));
+    grid-template-rows: minmax(0, 1fr) auto;
+    align-items: stretch;
+    padding-block: 0;
+  }
+  .hero:not(.hero--page) .hero__img {
+    position: relative; inset: auto; z-index: 0;
+    grid-row: 1;
+    height: 100%; width: 100%;
+    object-position: 50% 30%;
+    /* dissolve the bottom edge into the panel below */
+    -webkit-mask-image: linear-gradient(to bottom, #000 74%, transparent 99%);
+    mask-image: linear-gradient(to bottom, #000 74%, transparent 99%);
+  }
+  .hero:not(.hero--page)::after { display: none; }
+  .hero:not(.hero--page) .hero__seam { display: none; }
+  .hero:not(.hero--page) .hero__inner { grid-row: 2; padding-block: 0 2.25rem; }
+  .hero__title { font-size: clamp(2.8rem, 1rem + 9vw, 3.4rem); }
+  .hero .lead { font-size: 1.05rem; }
+  .hero:not(.hero--page) .lead { color: var(--on-dark-soft); }
+  /* two buttons on one row keeps the panel compact */
+  .hero .btn-row { flex-direction: row; gap: 0.6rem; margin-top: 1.5rem; }
+  .hero .btn-row .btn {
+    flex: 1 1 0; width: auto;
+    padding: 1.05em 0.6em; font-size: 0.645rem; letter-spacing: 0.14em;
+  }
 }
 
 /* keep the hero eyebrow on one line on narrow phones */
