@@ -31,9 +31,14 @@ window.BATHSUITE = {
   // (e.g. hello@thebathsuite.com.au) once the domain is sorted.
   email: 'Winspear.ma@gmail.com',
 
-  // Suburbs / regions covered. One entry per line in the list.
-  // e.g. ['Eastern Suburbs', 'Inner West', 'North Shore', 'Sutherland Shire']
-  areas: [],
+  // Suburbs / regions covered, one entry per line.
+  // Supplied by Mohammed 2026-08-18.
+  areas: [
+    'Eastern Suburbs',
+    'Sydney Metro',
+    'Inner West',
+    'Sutherland Shire'
+  ],
 
   // Opening hours, one entry per line.
   // Confirmed by Mohammed 2026-08-18 ("hours as you suggested is fine").
@@ -44,12 +49,14 @@ window.BATHSUITE = {
     'Sunday: Closed'
   ],
 
-  /* Optional street address. Leave blank if the business has no public
-     shopfront — a service-area business does not need one, and Google
-     Business Profile lets you hide the address for a service-area listing. */
-  addressLine: '',
-  suburb: '',
-  postcode: '',
+  /* Public contact address, given by Mohammed 2026-08-18 as the
+     "contact us" address.
+     NOTE: he did not give a postcode. 2224 is the standard postcode for
+     Sylvania NSW — worth confirming before this goes on the live domain,
+     since it also feeds the address Google reads. */
+  addressLine: '53 Corea Street',
+  suburb: 'Sylvania',
+  postcode: 'NSW 2224',
 
   /* ----------------------------------------------------------------------
      3. FORM DELIVERY — where enquiries are emailed.

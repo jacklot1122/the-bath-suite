@@ -887,6 +887,18 @@ h2 + .ticks, h3 + .ticks { margin-top: clamp(1.05rem, 0.85rem + 0.6vw, 1.5rem); 
 .form-sent.is-shown { display: block; }
 .form-sent h3 { margin-bottom: 0.5rem; }
 
+.map-embed {
+  border: 1px solid var(--sand-2);
+  background: var(--sand);
+  line-height: 0;
+}
+.map-embed iframe {
+  display: block; width: 100%; border: 0;
+  height: clamp(16rem, 34vw, 25rem);
+  /* the map is a bright rectangle in a warm palette, so knock it back a touch */
+  filter: saturate(0.82) contrast(0.96);
+}
+
 .map-slot {
   display: grid; place-items: center;
   min-height: clamp(14rem, 32vw, 22rem); padding: 2rem; text-align: center;
