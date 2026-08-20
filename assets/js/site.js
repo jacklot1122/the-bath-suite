@@ -76,13 +76,19 @@
       var value = key === 'address' ? address : CFG[key];
       var list = asList(value);
 
+      var row = el.closest('[data-optional]') || el;
+
       if (!list.length) {
         // nothing supplied
         if (CFG.PREVIEW) return; // leave the [PLACEHOLDER] tag visible
-        var row = el.closest('[data-optional]') || el;
         row.hidden = true;
         return;
       }
+
+      // A row may ship hidden in the markup so that an unsupplied detail never
+      // shows a placeholder to a real visitor, even with JavaScript off.
+      // Supplying a value here brings it back.
+      row.hidden = false;
 
       if (key === 'phone') {
         el.innerHTML = '';

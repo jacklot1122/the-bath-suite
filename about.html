@@ -126,9 +126,13 @@
           <p class="eyebrow">Who you deal with</p>
           <h2>One studio, one point of contact.</h2>
           <div class="prose">
-            <p>The studio is led by <span class="fill">[Director name]</span>, a licensed carpenter
-              and bathroom renovator with <span class="fill">[X]</span> years in the trade, working
-              from <span class="fill">[Base suburb]</span> across Sydney.</p>
+            <!-- Once supplied, this sentence becomes:
+                 "The studio is led by NAME, a licensed carpenter and bathroom
+                 renovator with X years in the trade, working from SUBURB across
+                 Sydney." Written without those details for now so the page has
+                 no visible gaps. -->
+            <p>The studio is led by a licensed carpenter and bathroom renovator, working on
+              bathrooms across Sydney.</p>
             <p>Construction is carried out under NSW Contractor Licence 697736, held by Winspear
               Developments Pty Ltd — the company behind The Bath Suite. The trading name is what
               you will see on the site fence; the licence and the contract sit with the company, and
@@ -237,7 +241,7 @@
         <div class="reveal">
           <h3 class="h3" style="max-width: 26ch">Where we work</h3>
           <p class="lead" style="margin-top: .75rem">Across Sydney and surrounds.</p>
-          <div data-optional style="margin-top: 1rem">
+          <div data-optional style="margin-top: 1rem" hidden>
             <p data-contact="areas"><span class="fill">[Service areas not supplied]</span></p>
           </div>
         </div>
@@ -329,7 +333,7 @@
           <dt>Email</dt>
           <dd data-contact="email"><a class="inline-link" href="mailto:Winspear.ma@gmail.com">Winspear.ma@gmail.com</a></dd>
         </div>
-        <div data-optional>
+        <div data-optional hidden>
           <dt>Service areas</dt>
           <dd data-contact="areas"><span class="fill">[Service areas not supplied]</span></dd>
         </div>
