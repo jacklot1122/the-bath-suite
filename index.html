@@ -29,9 +29,8 @@
 <link rel="stylesheet" href="assets/css/site.css">
 <script src="assets/js/config.js"></script>
 
-<!-- Local business schema. STILL TO ADD once supplied: "address"
-     (streetAddress / postalCode), if a public address is ever wanted.
-     Keep "telephone" and the hours in step with config.js if they change.
+<!-- Local business schema. Keep "telephone", "address" and the hours in step
+     with config.js if any of them change.
      Saturday is deliberately not listed below: it is by appointment, and no
      times were given, so inventing a window would be worse than omitting it.
      The human-readable hours on the page carry that nuance. -->
@@ -541,9 +540,9 @@
           <dt>Email</dt>
           <dd data-contact="email"><a class="inline-link" href="mailto:Winspear.ma@gmail.com">Winspear.ma@gmail.com</a></dd>
         </div>
-        <div data-optional hidden>
+        <div data-optional>
           <dt>Service areas</dt>
-          <dd data-contact="areas"><span class="fill">[Service areas not supplied]</span></dd>
+          <dd data-contact="areas">Eastern Suburbs<br>Sydney Metro<br>Inner West<br>Sutherland Shire</dd>
         </div>
         <div data-optional>
           <dt>Hours</dt>
