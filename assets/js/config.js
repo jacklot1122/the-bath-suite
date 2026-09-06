@@ -23,13 +23,13 @@ window.BATHSUITE = {
      ---------------------------------------------------------------------- */
 
   // Becomes a tap-to-call link on phones and the Call button on the mobile bar.
-  // NOTE: Mohammed said 2026-08-18 this number is temporary and will change.
-  // Update it here and it changes on every page at once.
-  phone: '0403 845 057',
+  // The business 1800 number, supplied 2026-09-06, replacing the temporary
+  // mobile. Also hard-coded in the markup and the JSON-LD — see README.
+  phone: '1800 374 188',
 
-  // Becomes a mailto link. Worth moving to a branded address
-  // (e.g. hello@thebathsuite.com.au) once the domain is sorted.
-  email: 'Winspear.ma@gmail.com',
+  // Becomes a mailto link, and is where the enquiry forms deliver.
+  // Supplied 2026-09-06, replacing the Gmail address.
+  email: 'Info@thebathsuite.com.au',
 
   // Suburbs / regions covered, one entry per line.
   // Supplied by Mohammed 2026-08-18.
@@ -61,16 +61,22 @@ window.BATHSUITE = {
   /* ----------------------------------------------------------------------
      3. FORM DELIVERY — where enquiries are emailed.
 
-     Set up (5 minutes, free plan is fine):
-       1. Sign up at https://formspree.io with the client's email address
-       2. Create a new form  →  copy the endpoint it gives you
-       3. Paste it below, replacing the placeholder
-       4. Send one test enquiry and confirm it lands in their inbox
+     Using FormSubmit, which needs no account: the address below simply
+     receives the enquiries.
 
-     Until this is a real endpoint, the forms refuse to submit and show a
-     clear message rather than silently losing an enquiry.
+     ONE-TIME ACTIVATION IS STILL REQUIRED. The first time the form is
+     submitted, FormSubmit emails Info@thebathsuite.com.au asking to confirm
+     the address. Until somebody clicks that link, nothing is delivered. So:
+
+       1. Make sure Info@thebathsuite.com.au exists and can receive mail
+       2. Submit the form once on the live site
+       3. Open that inbox and click FormSubmit's activation link
+       4. Submit once more and confirm the enquiry arrives
+
+     The same address is used in the form action on every page, so changing
+     it here alone is not enough — see README for the find-and-replace.
      ---------------------------------------------------------------------- */
-  FORM_ENDPOINT: 'https://formspree.io/f/YOUR_FORM_ID',
+  FORM_ENDPOINT: 'https://formsubmit.co/Info@thebathsuite.com.au',
 
   /* Where the enquiry email should be replied to / titled */
   FORM_SUBJECT: 'New website enquiry — The Bath Suite'

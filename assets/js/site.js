@@ -243,7 +243,16 @@
     if (!forms.length) return;
 
     var endpoint = CFG.FORM_ENDPOINT || '';
-    var configured = endpoint && endpoint.indexOf('YOUR_FORM_ID') === -1;
+    var configured = endpoint && !/YOUR_FORM_ID|YOUR_EMAIL/.test(endpoint);
+
+    // FormSubmit only returns JSON from its /ajax/ path. Without this it
+    // answers with a redirect, which fetch cannot follow usefully.
+    function ajaxUrl(url) {
+      if (url.indexOf('formsubmit.co/') !== -1 && url.indexOf('/ajax/') === -1) {
+        return url.replace('formsubmit.co/', 'formsubmit.co/ajax/');
+      }
+      return url;
+    }
 
     Array.prototype.forEach.call(forms, function (form) {
       if (configured) form.setAttribute('action', endpoint);
@@ -262,14 +271,14 @@
 
       form.addEventListener('submit', function (e) {
         // a filled honeypot means a bot — drop it without a word
-        var hp = form.querySelector('input[name="_gotcha"]');
+        var hp = form.querySelector('input[name="_honey"]');
         if (hp && hp.value) { e.preventDefault(); return; }
 
         if (!configured) {
           e.preventDefault();
           say(
-            'This form is not connected yet. Add the Formspree endpoint in ' +
-            'assets/js/config.js (FORM_ENDPOINT) so enquiries reach your inbox.',
+            'This form is not connected yet. Set FORM_ENDPOINT in ' +
+            'assets/js/config.js so enquiries reach your inbox.',
             true
           );
           return;
@@ -281,7 +290,7 @@
         if (msg) msg.classList.remove('is-shown');
         if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
 
-        fetch(form.action, {
+        fetch(ajaxUrl(form.action), {
           method: 'POST',
           body: new FormData(form),
           headers: { Accept: 'application/json' }
