@@ -28,8 +28,10 @@ window.BATHSUITE = {
   phone: '1800 374 188',
 
   // Becomes a mailto link, and is where the enquiry forms deliver.
-  // Supplied 2026-09-06, replacing the Gmail address.
-  email: 'Info@thebathsuite.com.au',
+  // TEMPORARY. Mohammed wants Info@thebathsuite.com.au, but that domain is
+  // not registered (only thebathsuite.com is), so the mailbox cannot exist
+  // yet. Using the working Gmail until the domain and mailbox are sorted.
+  email: 'Winspear.ma@gmail.com',
 
   // Suburbs / regions covered, one entry per line.
   // Supplied by Mohammed 2026-08-18.
@@ -65,10 +67,10 @@ window.BATHSUITE = {
      receives the enquiries.
 
      ONE-TIME ACTIVATION IS STILL REQUIRED. The first time the form is
-     submitted, FormSubmit emails Info@thebathsuite.com.au asking to confirm
+     submitted, FormSubmit emails Winspear.ma@gmail.com asking to confirm
      the address. Until somebody clicks that link, nothing is delivered. So:
 
-       1. Make sure Info@thebathsuite.com.au exists and can receive mail
+       1. Make sure Winspear.ma@gmail.com exists and can receive mail
        2. Submit the form once on the live site
        3. Open that inbox and click FormSubmit's activation link
        4. Submit once more and confirm the enquiry arrives
@@ -76,7 +78,7 @@ window.BATHSUITE = {
      The same address is used in the form action on every page, so changing
      it here alone is not enough — see README for the find-and-replace.
      ---------------------------------------------------------------------- */
-  FORM_ENDPOINT: 'https://formsubmit.co/Info@thebathsuite.com.au',
+  FORM_ENDPOINT: 'https://formsubmit.co/Winspear.ma@gmail.com',
 
   /* Where the enquiry email should be replied to / titled */
   FORM_SUBJECT: 'New website enquiry — The Bath Suite'
