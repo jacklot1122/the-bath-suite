@@ -527,12 +527,27 @@ h2 + .ticks, h3 + .ticks { margin-top: clamp(1.05rem, 0.85rem + 0.6vw, 1.5rem); 
 
 @media (min-width: 900px) {
   .hero.hero--lead .hero__inner { align-items: center; }
+  /* an even split: the form needs half the grid before a pair of fields side
+     by side stops being cramped */
   .hero.hero--lead .hero__lede { grid-column: 1 / span 6; }
-  .hero.hero--lead .hero__form { grid-column: 8 / -1; margin-top: 0; }
+  .hero.hero--lead .hero__form { grid-column: 7 / -1; margin-top: 0; }
   /* the licence aside would sit under the form; the proof row directly below
      carries the same licence number */
   .hero.hero--lead .hero__aside { display: none; }
 }
+
+/* Between the stacking breakpoint and a roomy desktop the card is half of a
+   small grid, which is not enough for two fields abreast: a 15in laptop was
+   landing on ~125px inputs, with the labels wrapping and the selects cut to
+   "Ple...". One field per row until there is width for the pair. */
+@media (min-width: 900px) and (max-width: 1199px) {
+  .hero.hero--lead .form-card .field-grid--2 { grid-template-columns: 1fr; }
+  .hero.hero--lead .form-card .field-full { grid-column: auto; }
+}
+
+/* the uppercase tracking is set for full-width labels; in this column it is
+   what pushes BUDGET RANGE onto a second line */
+.hero.hero--lead .form-card .field > label { letter-spacing: 0.13em; }
 
 /* Phones: a shorter photograph band, so the form is reachable without first
    scrolling past a full screen of picture. */
