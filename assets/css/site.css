@@ -511,6 +511,47 @@ h2 + .ticks, h3 + .ticks { margin-top: clamp(1.05rem, 0.85rem + 0.6vw, 1.5rem); 
   .hero .eyebrow::before { width: 20px; }
 }
 
+/* A landing hero that carries the enquiry form beside the headline. A form in
+   the band makes it content-sized, so the one-screen height rules above are
+   unwound here rather than made conditional in place. */
+.hero.hero--lead {
+  min-height: 0;
+  align-items: center;
+  padding-block: clamp(2.5rem, 1.5rem + 5vw, 5rem) clamp(2.5rem, 1.5rem + 5vw, 4.5rem);
+}
+.hero.hero--lead .hero__form { margin-top: clamp(1.75rem, 4vw, 2.5rem); }
+/* a narrower column than the form further down a page, so the card loses some
+   padding and the message box stops towering over the fields above it */
+.hero.hero--lead .form-card { padding: clamp(1.4rem, 0.9rem + 2vw, 2.1rem); }
+.hero.hero--lead .form-card .field textarea { min-height: 5.5rem; }
+
+@media (min-width: 900px) {
+  .hero.hero--lead .hero__inner { align-items: center; }
+  .hero.hero--lead .hero__lede { grid-column: 1 / span 6; }
+  .hero.hero--lead .hero__form { grid-column: 8 / -1; margin-top: 0; }
+  /* the licence aside would sit under the form; the proof row directly below
+     carries the same licence number */
+  .hero.hero--lead .hero__aside { display: none; }
+}
+
+/* Phones: a shorter photograph band, so the form is reachable without first
+   scrolling past a full screen of picture. */
+@media (max-width: 619px) {
+  .hero.hero--lead {
+    min-height: 0;
+    grid-template-rows: auto auto;
+    align-items: stretch;
+    padding-block: 0 2.5rem;
+  }
+  .hero.hero--lead .hero__img { height: 26svh; min-height: 10.5rem; }
+  .hero.hero--lead .hero__inner { padding-block: 0; }
+  /* the headline gives up a little size so the top of the form card clears
+     the fold and reads as something to scroll to */
+  .hero.hero--lead .hero__title { font-size: clamp(2.3rem, 0.9rem + 7vw, 2.9rem); }
+  .hero.hero--lead .lead { font-size: 1rem; }
+  .hero.hero--lead .btn-row { margin-top: 1.15rem; }
+}
+
 /* --------------------------------- 09 statement & editorial blocks ---- */
 /* a large offset paragraph, replacing the three-box "pillars" pattern */
 .statement__label { grid-column: 1 / -1; }

@@ -125,7 +125,7 @@
 <main id="main">
 
   <!-- ============================================================ HERO -->
-  <section class="hero">
+  <section class="hero hero--lead">
     <img class="hero__img"
          src="assets/img/gallery/french-provincial-ensuite-arched-doorway-tub.webp"
          alt="Ensuite with an arched doorway to the shower, a freestanding bath beneath a steel window, and a fluted timber double vanity."
@@ -137,10 +137,96 @@
         <p class="lead">We design the room in 3D, then build it ourselves. No gap between the
           drawing and the tiling, and nobody to point at when something does not line up.</p>
         <div class="btn-row">
-          <a class="btn btn--brass" href="#enquire">Get a quote</a>
           <a class="btn btn--ghost" href="#work">See finished rooms</a>
         </div>
       </div>
+
+      <div class="hero__form" id="enquire">
+        <div class="form-card">
+          <form data-enquiry action="https://formsubmit.co/Winspear.ma@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Bathroom renovation enquiry — The Bath Suite">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_page" value="Bathroom renovations landing page">
+            <div class="hp" aria-hidden="true">
+              <label for="hp-lp">Leave this field empty</label>
+              <input id="hp-lp" type="text" name="_honey" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="field-grid field-grid--2">
+              <div class="field">
+                <label for="l-name">Name <span class="req">*</span></label>
+                <input id="l-name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="l-phone">Phone <span class="req">*</span></label>
+                <input id="l-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+              </div>
+              <div class="field field-full">
+                <label for="l-email">Email <span class="req">*</span></label>
+                <input id="l-email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="field">
+                <label for="l-suburb">Suburb</label>
+                <input id="l-suburb" name="suburb" type="text" autocomplete="address-level2">
+              </div>
+              <div class="field">
+                <label for="l-scope">The room</label>
+                <select id="l-scope" name="scope">
+                  <option value="">Please choose…</option>
+                  <option>Main bathroom</option>
+                  <option>Ensuite</option>
+                  <option>Main bathroom and ensuite</option>
+                  <option>Powder room</option>
+                  <option>More than two rooms</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="l-budget">Budget range</label>
+                <select id="l-budget" name="budget">
+                  <option value="">Prefer not to say</option>
+                  <option>Under $25,000</option>
+                  <option>$25,000 – $40,000</option>
+                  <option>$40,000 – $60,000</option>
+                  <option>$60,000 – $85,000</option>
+                  <option>$85,000 +</option>
+                  <option>Would like guidance on this</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="l-when">Timeframe</label>
+                <select id="l-when" name="timeframe">
+                  <option value="">Please choose…</option>
+                  <option>As soon as possible</option>
+                  <option>Within 1–3 months</option>
+                  <option>Within 3–6 months</option>
+                  <option>Later this year</option>
+                  <option>Just planning for now</option>
+                </select>
+              </div>
+              <div class="field field-full">
+                <label for="l-msg">About the project</label>
+                <textarea id="l-msg" name="message" rows="5" placeholder="The room, the age of the house, what you would like to change, and any timing you are working to."></textarea>
+              </div>
+            </div>
+
+            <div class="form-foot">
+              <p class="form-note">We reply to every enquiry. Your details are used only to
+                answer it.</p>
+              <button class="btn btn--brass" type="submit">Send enquiry</button>
+            </div>
+            <p class="form-msg" data-form-msg role="status" aria-live="polite"></p>
+          </form>
+
+          <div class="form-sent center" data-form-sent>
+            <h3 class="h3">Thank you, that has been sent.</h3>
+            <p class="lead" style="margin-top:.6rem">We have your enquiry and will be in touch
+              shortly.</p>
+          </div>
+        </div>
+      </div>
+
       <p class="hero__aside">Sydney, NSW<br>Licence 697736</p>
     </div>
     <span class="hero__seam" aria-hidden="true"></span>
@@ -334,15 +420,15 @@
   </section>
 
   <!-- ========================================================= ENQUIRY -->
-  <section class="section" id="enquire">
+  <section class="section" id="contact">
     <div class="shell">
-      <div class="split split--top">
+      <div style="max-width: 46rem">
         <div class="reveal">
-          <p class="eyebrow">Get a quote</p>
-          <h2>Tell us about the room.</h2>
-          <p class="lead" style="margin-top: 1.25rem">Send through the bathroom and roughly what
-            you have in mind. You will get a considered reply, and an honest view of what the space
-            can carry.</p>
+          <p class="eyebrow">Speak to us</p>
+          <h2>Prefer to talk it through?</h2>
+          <p class="lead" style="margin-top: 1.25rem">The form at the top of the page comes
+            straight to us. If you would rather speak to someone first, the phone and email below
+            reach the same desk.</p>
 
           <div class="rule" aria-hidden="true"><span></span></div>
 
@@ -364,92 +450,6 @@
               <dd>NSW Contractor Licence 697736<small>Winspear Developments Pty Ltd — Carpenter, Kitchen, Bathroom, Laundry Renovator</small></dd>
             </div>
           </dl>
-        </div>
-
-        <div class="reveal">
-          <div class="form-card">
-            <form data-enquiry action="https://formsubmit.co/Winspear.ma@gmail.com" method="POST">
-              <input type="hidden" name="_subject" value="Bathroom renovation enquiry — The Bath Suite">
-              <input type="hidden" name="_captcha" value="false">
-              <input type="hidden" name="_template" value="table">
-              <input type="hidden" name="_page" value="Bathroom renovations landing page">
-              <div class="hp" aria-hidden="true">
-                <label for="hp-lp">Leave this field empty</label>
-                <input id="hp-lp" type="text" name="_honey" tabindex="-1" autocomplete="off">
-              </div>
-
-              <div class="field-grid field-grid--2">
-                <div class="field">
-                  <label for="l-name">Name <span class="req">*</span></label>
-                  <input id="l-name" name="name" type="text" autocomplete="name" required>
-                </div>
-                <div class="field">
-                  <label for="l-phone">Phone <span class="req">*</span></label>
-                  <input id="l-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
-                </div>
-                <div class="field field-full">
-                  <label for="l-email">Email <span class="req">*</span></label>
-                  <input id="l-email" name="email" type="email" autocomplete="email" required>
-                </div>
-                <div class="field">
-                  <label for="l-suburb">Suburb</label>
-                  <input id="l-suburb" name="suburb" type="text" autocomplete="address-level2">
-                </div>
-                <div class="field">
-                  <label for="l-scope">The room</label>
-                  <select id="l-scope" name="scope">
-                    <option value="">Please choose…</option>
-                    <option>Main bathroom</option>
-                    <option>Ensuite</option>
-                    <option>Main bathroom and ensuite</option>
-                    <option>Powder room</option>
-                    <option>More than two rooms</option>
-                    <option>Not sure yet</option>
-                  </select>
-                </div>
-                <div class="field">
-                  <label for="l-budget">Budget range</label>
-                  <select id="l-budget" name="budget">
-                    <option value="">Prefer not to say</option>
-                    <option>Under $25,000</option>
-                    <option>$25,000 – $40,000</option>
-                    <option>$40,000 – $60,000</option>
-                    <option>$60,000 – $85,000</option>
-                    <option>$85,000 +</option>
-                    <option>Would like guidance on this</option>
-                  </select>
-                </div>
-                <div class="field">
-                  <label for="l-when">Timeframe</label>
-                  <select id="l-when" name="timeframe">
-                    <option value="">Please choose…</option>
-                    <option>As soon as possible</option>
-                    <option>Within 1–3 months</option>
-                    <option>Within 3–6 months</option>
-                    <option>Later this year</option>
-                    <option>Just planning for now</option>
-                  </select>
-                </div>
-                <div class="field field-full">
-                  <label for="l-msg">About the project</label>
-                  <textarea id="l-msg" name="message" rows="5" placeholder="The room, the age of the house, what you would like to change, and any timing you are working to."></textarea>
-                </div>
-              </div>
-
-              <div class="form-foot">
-                <p class="form-note">We reply to every enquiry. Your details are used only to
-                  answer it.</p>
-                <button class="btn btn--brass" type="submit">Send enquiry</button>
-              </div>
-              <p class="form-msg" data-form-msg role="status" aria-live="polite"></p>
-            </form>
-
-            <div class="form-sent center" data-form-sent>
-              <h3 class="h3">Thank you, that has been sent.</h3>
-              <p class="lead" style="margin-top:.6rem">We have your enquiry and will be in touch
-                shortly.</p>
-            </div>
-          </div>
         </div>
       </div>
     </div>
