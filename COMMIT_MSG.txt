@@ -1,0 +1,18 @@
+Send enquiries to our own thank-you page and fire the Ads conversion there
+
+The forms posted to FormSubmit with no _next, so after a send people landed on
+FormSubmit's page, off the domain. There was no page on thebathsuite.com where
+a conversion could ever fire, which is why Google Ads kept reporting
+"Conversion tracking setup is incomplete" no matter what was configured in the
+account.
+
+Adds thanks.html and points every form at it via _next. The Enquiry Form
+Submission event snippet (AW-18442373819/xZbZCPKOz_ccELuVgdpE) sits on that
+page, so a view means an enquiry genuinely went through. It is noindex, since
+indexing it would let people reach it without submitting and inflate the count.
+
+The base Google tag was only on the home and landing pages. It is now on
+about, contact, gallery and services too - contact being the one that actually
+takes enquiries.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>
