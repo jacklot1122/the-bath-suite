@@ -534,15 +534,42 @@ h2 + .ticks, h3 + .ticks { margin-top: clamp(1.05rem, 0.85rem + 0.6vw, 1.5rem); 
   /* the licence aside would sit under the form; the proof row directly below
      carries the same licence number */
   .hero.hero--lead .hero__aside { display: none; }
+
+  /* --t-hero is sized for a headline with the full shell to itself. Here it
+     has half of it, so 96px on a 1366 laptop drove the line down to four and
+     the whole band read as squashed. Scale to the column, not the viewport. */
+  .hero.hero--lead .hero__title {
+    /* the cap matters as much as the floor: past ~1340px the shell stops
+       widening, so the column is fixed at ~600px while vw keeps climbing —
+       an uncapped size went back to three lines on a 1920 monitor */
+    font-size: clamp(2.1rem, 0.9rem + 3vw, 3.45rem);
+    line-height: 1.02;
+    /* the base 15ch measure is for a headline with the shell to itself; here
+       the column is already the limit, and 15ch on top of it cost a line */
+    max-width: none;
+  }
+  .hero.hero--lead .lead { font-size: 1.06rem; }
 }
 
-/* Between the stacking breakpoint and a roomy desktop the card is half of a
-   small grid, which is not enough for two fields abreast: a 15in laptop was
-   landing on ~125px inputs, with the labels wrapping and the selects cut to
-   "Ple...". One field per row until there is width for the pair. */
+/* Between the phone layout and a roomy desktop there is not enough width to
+   run a headline and a form side by side. Splitting the grid left ~440px for
+   the headline against a single-column form that towered to 1200px, so a
+   laptop saw a small headline marooned beside a very tall card. Stack them:
+   headline across the top, form full width beneath with its fields in pairs
+   again. */
 @media (min-width: 900px) and (max-width: 1199px) {
-  .hero.hero--lead .form-card .field-grid--2 { grid-template-columns: 1fr; }
-  .hero.hero--lead .form-card .field-full { grid-column: auto; }
+  .hero.hero--lead .hero__lede { grid-column: 1 / -1; }
+  .hero.hero--lead .hero__form {
+    grid-column: 1 / -1;
+    margin-top: clamp(1.75rem, 3vw, 2.5rem);
+  }
+  .hero.hero--lead .hero__title {
+    font-size: clamp(2.6rem, 1rem + 3.4vw, 3.7rem);
+    /* stacked, the headline has the whole shell — cap the measure so it reads
+       as a headline rather than a full-width banner of text */
+    max-width: 22ch;
+  }
+  .hero.hero--lead .lead { max-width: 52ch; }
 }
 
 /* the uppercase tracking is set for full-width labels; in this column it is
